@@ -29,7 +29,7 @@ def create():
         error = None
 
         if not title:
-            error = 'Title is required'
+            error = 'Title is required.'
         
         if error is not None:
             flash(error)
@@ -38,7 +38,7 @@ def create():
             db.execute(
                 'INSERT INTO post (title, body, author_id)'
                 ' VALUES (?, ?, ?)',
-                (title, body, g.user['id'])
+                (title, body, g.user['id'],)
             )
             db.commit()
             return redirect(url_for('blog.index'))
@@ -74,16 +74,16 @@ def update(id):
         error = None
 
         if not title:
-            error = 'Title is required'
+            error = 'Title is required.'
         
         if error is not None:
             flash(error)
         else:
             db = get_db()
             db.execute(
-                'UPDATE post SET tile = ?, body = ?'
+                'UPDATE post SET title = ?, body = ?'
                 ' WHERE id = ?',
-                (title, body, id)
+                (title, body, id,)
             )
             db.commit()
             return redirect(url_for('blog.index'))

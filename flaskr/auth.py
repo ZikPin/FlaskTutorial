@@ -22,9 +22,9 @@ def register():
 
         # validating that username and password are not empty
         if not username:
-            error = 'Username is required'
+            error = 'Username is required.'
         elif not password:
-            error = 'Password is required'
+            error = 'Password is required.'
 
         if error is None:
             # after successful validation, insert the new user data into db
